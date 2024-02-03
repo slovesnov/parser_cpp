@@ -1,0 +1,138 @@
+//pow(a,b)+.1e+1
+a=e b=pi
+
+pow(sin(pi/10)*4+1,2)
+
+1.25 3 2 2024
+[all] added ** and ^ as pow function
+[all] added octal numbers
+[php] added php parser
+[all] testcases are extended
+[all] improved Node::calculate function
+[all] fixed bug for testcases results comparing
+[c++] remove references to aslov library for parser
+[java] fixed bug with repeated variable
+[c++, java] bug fixed in plotter, if got nan or x/y out of screen
+
+[ru]
+[всё] добавлено ** и ^ как функция возведения в степень
+[всё] добавлены восьмеричные числа
+[php] добавлен php парсер
+[всё] расширены тесткейсы
+[всё] улучшена функция Node::calculate
+[всё] исправлен баг для сравнения результатов тесткейсов
+[c++] удалены ссылки на библиотеку aslov в парсере
+[java] исправлен баг с повторяющимися переменными
+[c++, java] исправлен баг в построителе графиков, если получен nan или x/y выходят за экран
+
+1.24 17 3 2023
+[c++/gtk] bug fixed in graph plotter, when x, y field was defined by mathematical expression
+
+[ru]
+1.24 17 3 2023
+[c++/gtk] исправлен баг в построителе графиков, когда поле x, y задавалось математическим выражением
+
+1.23 12 5 2022
+[c++] functions min, max, round in Node class are changed to standard functions
+[c++] added random() function to Node class which uses c++11 features. This function is thread safe and working good for many threads. Also bad code for correct work of previous version of random numbers generator is removed.
+[c++] no need to recompile calculator & graph
+
+[ru]
+[c++] функции min, max, round в классе Node заменены на стандартные функции
+[c++] добавлена функция random() в класс Node, которая использует возможности c++11. Эта функция потокозащищенная и хорошо работает для многих потоков. Также был удален плохой код, который был написан для корректной работы генератора случайных чисел предыдущей версии.
+[c++] не требуется перекомпиляции калькулятора и построителя графиков
+
+1.22 29 4 2022
+[c++/java/js] added test cases
+[c++/java/js] add variable set for constuctor/compile()
+[c++/java/js] add formula support for min, max, steps inputs
+[c++/java] add variadic argument for calculate()
+[c++/java] add formula creation in constructor
+[c++] Exception/IllegalArgumentException classes replaced by std::runtime_error/std::invalid_argument
+[c++] enum OPERATOR_ENUM became class to hide global constants
+[c++] add graph plotter application
+[js] added support for formulas without variable list for compile(), variables x0,x1 are assumed...
+[java] update calculator/plotter, now like c++/javascript
+[java] remove applet classes
+[java] fix argument count bug for plotter, for example y(t)=random()
+
+[ru]
+[c++/java/js] добавлены тестовые случаи
+[c++/java/js] добавлена установка множества переменных в конструкторе и compile()
+[c++/java/js] добавлена поддержка формул для min, max, steps
+[c++/java] добавлено различное число переменных в calculate()
+[c++/java] добавлено создание формул в конструкторе
+[c++] классы Exception/IllegalArgumentException заменены на std::runtime_error/std::invalid_argument
+[c++] enum OPERATOR_ENUM стал классом чтобы скрыть глобальные константы
+[c++] добавлен построитель графиков
+[js] добавлена поддержка формул без списка переменных для compile(), предполагаются переменные x0,x1...
+[java] обновился калькулятор/построитель графиков, сейчас сделан как на c++/javascript
+[java] удалены классы апплетов
+[java] исправлен баг, считающий число аргументов в построителе графиков, например y(t)=random()
+
+1.21 8 4 2022
+[с++] function ExpressionEstimator::Init() is removed
+[с++] fixed bug with max value of random() function
+[c++] calculate() function now support std::initializer_list<...> or std::vector<double> arguments so you can call calculate({2,3}) or std::vector<double> v={2,3}; calcualte(v);
+[js] added ExpressionEstimator class so now js parser is done like c++/java parser
+[js] fixed bug with parsing some expressions, for example "sin(c)" ReferenceError: c is not defined
+[js] fixed bug with 'random()' in formulas now always returs different values
+[js] fixed bug with formulas where function without parameters is defined, for example 'random' now always throw exception
+
+[ru]
+[с++] функция ExpressionEstimator::Init() удалена
+[с++] исправлен баг с максимальным значением функции random()
+[c++] функция calculate() поддерживает аргументы std::initializer_list<...> или std::vector<double>, теперь можно вызывать calculate({2,3}) или std::vector<double> v={2,3}; calcualte(v);
+[js] добавлен класс ExpressionEstimator, теперь js парсер сделан как c++/java парсеры
+[js] исправлен баг при парсинге некоторых выражений, например, "sin(c)" ReferenceError: c is not defined
+[js] исправлен баг с функцией 'random()' в формулах, теперь всегда возвращаются разные значения
+[js] исправлен баг с формулами где задана функция без параметров, например, 'random' теперь всегда вызывается исключение
+
+1.20 17 2 2022
+[c++/gtk] fixed buffer overflow bug if paste big number ex. max_double
+[c++/gtk] add rounding
+[c++/gtk] pow(sqrt(5),2)=5 instead of 5.000000000000001
+[c++/gtk] pow(sqrt(12),2)=12 instead of 11.999999999999998 
+[c++/gtk] pow(sqrt(12.34),2)=12.34 instead of 12.340000000000002 
+[c++/gtk] pow(sqrt(19.99),2)=19.99 instead of 19.989999999999998
+[c++/gtk] pow(sqrt(1.23945632114677),2)=1.23945632114677 instead of 1.239456321146770 
+
+1.19 31 12 2021
+[c++/gtk] aslov library changes
+
+1.18 3 11 2021
+[c++/gtk] adopted for Windows 10
+[c++/gtk] project uses aslov helper library
+[c++] sources added to github
+
+[ru]
+[c++/gtk] адаптировано под Windows 10
+[c++/gtk] проект использует вспомогательную библиотеку aslov
+[c++] исходный код добавлен на github
+
+1.17 8 7 2021
+[c++] added "clear buffer" button
+[c++] source code is formatted by eclipse beautifier
+
+version 1.16 9 sep 2019
+javascript parser changes
+calculator and parser use separate files
+add checking of nonexistent variables. Now parser throws exception even if global variable exists. It's possible to set list of allowable variables
+fixed bug, parser always throws exception. Previous versions sometimes throw string
+
+version 1.15 22 nov 2018
+[c++] recompiled gtk calculator
+
+version 1.14 23 aug 2018
+[c++ parser]
+fixed bug with parsing (213.45-206.75)*27 and 213.45-206.75*27
+calculator isn't recompiled
+
+version 1.13 6 mar 2018
+[c++ calculator]
+add installer
+remove warnings for gcc 7.3.0 version for parser
+code is adopted for gtk 3.22.28 version
+fixed bug with click button function
+[java calculator]
+remove unused output
