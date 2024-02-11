@@ -3,6 +3,17 @@ a=e b=pi
 
 pow(sin(pi/10)*4+1,2)
 
+1.26 ? ? 2024
+[all] added sign function
+[all] add compute samples
+[c++] fixed round bug for calculator
+[js] fixed bug with replace ^ to **
+
+[всё] добавлена функция sign
+[всё] добавлены примеры вычислений
+[c++] исправлен баг с округлением в калькуляторе
+[js] исправлен баг с заменой ^ на **
+
 1.25 3 2 2024
 [all] added ** and ^ as pow function
 [all] added octal numbers

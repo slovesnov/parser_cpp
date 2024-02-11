@@ -13,7 +13,7 @@
  * TYPE 5 - copy testcases from cpp to java, js, php
  * else   - sample
  */
-#define TYPE 3
+#define TYPE 5
 
 #include <iostream>
 #include <sstream>
@@ -34,12 +34,13 @@ std::string vectorToString(const std::vector<double> &v) {
 #if TYPE==1
 
 int main() {
-	double v;
 	try {
-		v = ExpressionEstimator::calculate("sin(pi/4)");
-		std::cout << v << std::endl;
-		v = ExpressionEstimator::calculate("pow( sin(pi/10)*4+1 , 2)");
-		std::cout << v << std::endl;
+		const char *a[] = { "sin(pi/4)", "pow( sin(pi/10)*4+1 , 2)",
+				"(sqrt(28/27)+1)^(1/3)-(sqrt(28/27)-1)^(1/3)",
+				"sqrt(28/3)*sin(asin( sqrt(243/343)) /3 )" };
+		for(auto e:a){
+			std::cout << ExpressionEstimator::calculate(e) << std::endl;
+		}
 	} catch (std::exception &ex) {
 		std::cout << ex.what() << std::endl;
 	}
@@ -193,14 +194,16 @@ const int java = 1;
 const int js = 2;
 const int php = 3;
 
-const std::string p[] = { R"(c:\slovesno\eclipse\test1)",
+const std::string p[] = { R"(C:\Users\user\git\parser_cpp\parser_cpp)",
 		R"(C:\Users\user\git\javaPlotterCalculator\javaPlotterCalculator)",
-		R"(c:\downloads\3\js\testcase)",
-		R"(c:\slovesno\site\1)"
+		R"(c:\slovesno\vscodegit\parser\javascript\testcase\)",
+		R"(c:\slovesno\vscodegit\parser\php\)"
 };
 
 std::string path(int n) {
-	return p[n] + "\\testcases." + (n == js ? "js" : "txt");
+	const char bs='\\';
+	auto s=p[n];
+	return s + (s[s.length()-1]==bs?"":std::string(1,bs))+"testcases." + (n == js ? "js" : "txt");
 }
 
 int main(int argc, char *argv[]) {
@@ -210,6 +213,7 @@ int main(int argc, char *argv[]) {
 
 	std::ifstream f(path(cpp));
 	if (!f) {
+		printf("%s",path(cpp).c_str());
 		std::cout << "cann't open cpp file";
 		return -1;
 	}
@@ -236,6 +240,7 @@ int main() {
 	ExpressionEstimator estimator;
 
 	try {
+		printf("%lf\n", ExpressionEstimator::calculate("abs(.5)"));
 //		std::string s[] = { "a" };
 //		ExpressionEstimator estimator("a^a", s, std::size(s));
 
@@ -249,6 +254,8 @@ int main() {
 		printf("%lf\n", estimator.calculate(d,j));
 		printf("%lf\n", estimator.calculate(d,unsigned(1)));
 		printf("%lf\n", estimator.calculate(d,int64_t(1)));
+		//printf("%lf\n", ExpressionEstimator::calculate("sqrt(28/3)*sin(asin(-sqrt(243/343))/3+4*pi/3 )"));
+
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}

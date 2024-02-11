@@ -140,6 +140,9 @@ double Node::calculate() {
 	case OPERATOR_ENUM::ABS:
 		return fabs(l);
 
+	case OPERATOR_ENUM::SIGN:
+		return l == 0 ? 0 : (std::signbit(l) ? -1 : 1);
+
 	case OPERATOR_ENUM::EXP:
 		return exp(l);
 

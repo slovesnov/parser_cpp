@@ -61,6 +61,7 @@ enum class OPERATOR_ENUM {
 	FLOOR,
 	ROUND,
 	ABS,
+	SIGN,
 	EXP,
 	LOG,
 	SQRT,

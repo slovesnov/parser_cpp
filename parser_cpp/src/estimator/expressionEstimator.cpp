@@ -24,7 +24,7 @@ const std::string FUNCTION[] = { "POW", "ATAN2", "MIN", "MAX", "SIN", "COS",
 		"TAN", "COT", "SEC", "CSC", "ASIN", "ACOS", "ATAN", "ACOT", "ASEC",
 		"ACSC", "SINH", "COSH", "TANH", "COTH", "SECH", "CSCH", "ASINH",
 		"ACOSH", "ATANH", "ACOTH", "ASECH", "ACSCH", "RANDOM", "CEIL", "FLOOR",
-		"ROUND", "ABS", "EXP", "LOG", "SQRT" };
+		"ROUND", "ABS", "SIGN", "EXP", "LOG", "SQRT" };
 
 static std::regex bregex(std::string const &s) {
 	return std::regex("\\b" + s + "\\b");
