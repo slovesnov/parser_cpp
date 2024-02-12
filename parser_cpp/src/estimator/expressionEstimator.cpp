@@ -186,7 +186,21 @@ Node* ExpressionEstimator::parse() {
 }
 
 Node* ExpressionEstimator::parse1() {
-	Node *node = parse2();
+	Node *node;
+	if (m_operator == OPERATOR_ENUM::MINUS) {
+		getToken();
+		node = new Node(this, OPERATOR_ENUM::UNARY_MINUS, parse2());
+	} else {
+		if (m_operator == OPERATOR_ENUM::PLUS) {
+			getToken();
+		}
+		node = parse2();
+	}
+	return node;
+}
+
+Node* ExpressionEstimator::parse2() {
+	Node *node = parse3();
 	while (m_operator == OPERATOR_ENUM::MULTIPLY
 			|| m_operator == OPERATOR_ENUM::DIVIDE
 			|| m_operator == OPERATOR_ENUM::POW) {
@@ -196,21 +210,7 @@ Node* ExpressionEstimator::parse1() {
 				|| m_operator == OPERATOR_ENUM::MINUS) {
 			throw std::runtime_error("two operators in a row");
 		}
-		node->m_right = parse2();
-	}
-	return node;
-}
-
-Node* ExpressionEstimator::parse2() {
-	Node *node;
-	if (m_operator == OPERATOR_ENUM::MINUS) {
-		getToken();
-		node = new Node(this, OPERATOR_ENUM::UNARY_MINUS, parse3());
-	} else {
-		if (m_operator == OPERATOR_ENUM::PLUS) {
-			getToken();
-		}
-		node = parse3();
+		node->m_right = parse3();
 	}
 	return node;
 }

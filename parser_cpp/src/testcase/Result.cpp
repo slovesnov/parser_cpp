@@ -36,11 +36,10 @@ void Result::set(std::string s, int line) {
 	auto f = map.find(s);
 	if (f == map.end()) {
 		errorCode = OK;
-#ifndef NDEBUG
-		bool b =
-#endif
-				parseString(s, value);
-		assert(b);
+		if(!parseString(s, value)){
+			printel("cann't parse testcase string",s,"at line",line);
+			exit(0);
+		}
 	} else {
 		errorCode = f->second;
 	}
