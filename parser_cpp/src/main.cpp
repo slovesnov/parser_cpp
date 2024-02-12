@@ -13,7 +13,7 @@
  * TYPE 5 - copy testcases from cpp to java, js, php
  * else   - sample
  */
-#define TYPE 5
+#define TYPE 3
 
 #include <iostream>
 #include <sstream>

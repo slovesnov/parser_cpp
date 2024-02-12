@@ -1,18 +1,15 @@
-//pow(a,b)+.1e+1
-a=e b=pi
-
-pow(sin(pi/10)*4+1,2)
-
-1.26 ? ? 2024
+1.26 13 2 2024
 [all] added sign function
 [all] add compute samples
-[c++] fixed round bug for calculator
+[js] the code has rewritten so that new Function is not used now
 [js] fixed bug with replace ^ to **
+[c++] fixed round bug for calculator
 
 [всё] добавлена функция sign
 [всё] добавлены примеры вычислений
-[c++] исправлен баг с округлением в калькуляторе
+[js] код переписан так, что теперь не используется new Function
 [js] исправлен баг с заменой ^ на **
+[c++] исправлен баг с округлением в калькуляторе
 
 1.25 3 2 2024
 [all] added ** and ^ as pow function
