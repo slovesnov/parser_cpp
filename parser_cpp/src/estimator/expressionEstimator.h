@@ -50,18 +50,11 @@ class ExpressionEstimator {
 
 	void getToken();
 
-	Node* parse();
-	Node* parse1();
-	Node* parse2();
-	Node* parse3();
+	Node* parse(int n = 0);
+	Node* parse4();
 
 	void checkBracketBalance(OPERATOR_ENUM open) {
-		if ((open == OPERATOR_ENUM::LEFT_BRACKET
-				&& m_operator != OPERATOR_ENUM::RIGHT_BRACKET)
-				|| (open == OPERATOR_ENUM::LEFT_SQUARE_BRACKET
-						&& m_operator != OPERATOR_ENUM::RIGHT_SQUARE_BRACKET)
-				|| (open == OPERATOR_ENUM::LEFT_CURLY_BRACKET
-						&& m_operator != OPERATOR_ENUM::RIGHT_CURLY_BRACKET)) {
+		if (int(m_operator) != int(open) + 1) {
 			throw std::runtime_error(
 					"close bracket expected or another type of close bracket");
 		}

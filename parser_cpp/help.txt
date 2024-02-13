@@ -1,16 +1,18 @@
-1.27
-[c++] added fullscreen support for graph
-
 1.26 13 2 2024
 [all] added sign function
+[all] the priority of operation ^ is higher than */
 [all] fixed bug for unary minus priority
+[c++] added fullscreen support for graph
 [all] add compute samples
 [js] the code has rewritten so that new Function is not used now
 [js] fixed bug with replace ^ to **
 [c++] fixed round bug for calculator
 
+[ru]
 [всё] добавлена функция sign
+[всё] приоритет операции ^ выше чем */
 [всё] исправлен баг с приоритетом унарного минуса
+[c++] добавлен режим на весь экран для плоттера
 [всё] добавлены примеры вычислений
 [js] код переписан так, что теперь не используется new Function
 [js] исправлен баг с заменой ^ на **

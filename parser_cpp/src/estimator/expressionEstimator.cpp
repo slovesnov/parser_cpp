@@ -26,6 +26,10 @@ const std::string FUNCTION[] = { "POW", "ATAN2", "MIN", "MAX", "SIN", "COS",
 		"ACOSH", "ATANH", "ACOTH", "ASECH", "ACSCH", "RANDOM", "CEIL", "FLOOR",
 		"ROUND", "ABS", "SIGN", "EXP", "LOG", "SQRT" };
 
+const OPERATOR_ENUM A[][2] = { { OPERATOR_ENUM::PLUS, OPERATOR_ENUM::MINUS },
+		{ }, { OPERATOR_ENUM::MULTIPLY, OPERATOR_ENUM::DIVIDE }, {
+				OPERATOR_ENUM::POW, OPERATOR_ENUM::POW } };
+
 static std::regex bregex(std::string const &s) {
 	return std::regex("\\b" + s + "\\b");
 }
@@ -170,52 +174,37 @@ void ExpressionEstimator::compile(const char *expression) {
 	free((void*) lorig);
 }
 
-Node* ExpressionEstimator::parse() {
-	Node *node = parse1();
-	while (m_operator == OPERATOR_ENUM::PLUS
-			|| m_operator == OPERATOR_ENUM::MINUS) {
-		node = new Node(this, m_operator, node);
-		getToken();
-		if (m_operator == OPERATOR_ENUM::PLUS
-				|| m_operator == OPERATOR_ENUM::MINUS) {
-			throw std::runtime_error("two operators in a row");
-		}
-		node->m_right = parse1();
-	}
-	return node;
-}
-
-Node* ExpressionEstimator::parse1() {
+Node* ExpressionEstimator::parse(int n) {
 	Node *node;
-	if (m_operator == OPERATOR_ENUM::MINUS) {
-		getToken();
-		node = new Node(this, OPERATOR_ENUM::UNARY_MINUS, parse2());
-	} else {
-		if (m_operator == OPERATOR_ENUM::PLUS) {
+	if (n == 1) {
+		if (m_operator == OPERATOR_ENUM::MINUS) {
 			getToken();
+			return new Node(this, OPERATOR_ENUM::UNARY_MINUS, parse(n + 1));
+		} else {
+			if (m_operator == OPERATOR_ENUM::PLUS) {
+				getToken();
+			}
+			return parse(n + 1);
 		}
-		node = parse2();
 	}
-	return node;
-}
-
-Node* ExpressionEstimator::parse2() {
-	Node *node = parse3();
-	while (m_operator == OPERATOR_ENUM::MULTIPLY
-			|| m_operator == OPERATOR_ENUM::DIVIDE
-			|| m_operator == OPERATOR_ENUM::POW) {
+	if (n == 4) {
+		return parse4();
+	}
+	node = parse(n + 1);
+	while (std::find(std::begin(A[n]), std::end(A[n]), m_operator)
+			!= std::end(A[n])) {
 		node = new Node(this, m_operator, node);
 		getToken();
-		if (m_operator == OPERATOR_ENUM::PLUS
-				|| m_operator == OPERATOR_ENUM::MINUS) {
+		if (std::find(std::begin(A[0]), std::end(A[0]), m_operator)
+				!= std::end(A[0])) { //here A[0]
 			throw std::runtime_error("two operators in a row");
 		}
-		node->m_right = parse3();
+		node->m_right = parse(n + 1);
 	}
 	return node;
 }
 
-Node* ExpressionEstimator::parse3() {
+Node* ExpressionEstimator::parse4() {
 	Node *node;
 	OPERATOR_ENUM open;
 	int arguments;
