@@ -111,7 +111,7 @@ public:
 			throw;
 		}
 	}
-	//allow 2nd parameter int, unsigned, uint64_t=size_t, int64_t
+	//allow 3rd parameter int, unsigned, uint64_t=size_t, int64_t
 	template<typename A>
 	ExpressionEstimator(const std::string &expression, const std::string *x,
 			A size) :
@@ -123,7 +123,7 @@ public:
 			throw;
 		}
 	}
-	//allow 2nd parameter int, unsigned, uint64_t=size_t, int64_t
+	//allow 3rd parameter int, unsigned, uint64_t=size_t, int64_t
 	template<typename A>
 	ExpressionEstimator(const std::string &expression, std::string *x, A size) :
 			ExpressionEstimator() {
