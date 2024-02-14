@@ -171,12 +171,12 @@ public:
 			std::initializer_list<std::string> const &v) {
 		compile(expression, std::vector<std::string> { v });
 	}
-	//allow 2nd parameter int, unsigned, uint64_t=size_t, int64_t
+	//allow 3rd parameter int, unsigned, uint64_t=size_t, int64_t
 	template<typename A>
 	void compile(const std::string &expression, const std::string *x, A size) {
 		compile(expression, std::vector<std::string>(x, x + size));
 	}
-	//allow 2nd parameter int, unsigned, uint64_t=size_t, int64_t
+	//allow 3rd parameter int, unsigned, uint64_t=size_t, int64_t
 	template<typename A>
 	void compile(const std::string &expression, std::string *x, A size) {
 		compile(expression, std::vector<std::string>(x, x + size));
