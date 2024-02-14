@@ -26,9 +26,9 @@ const std::string FUNCTION[] = { "POW", "ATAN2", "MIN", "MAX", "SIN", "COS",
 		"ACOSH", "ATANH", "ACOTH", "ASECH", "ACSCH", "RANDOM", "CEIL", "FLOOR",
 		"ROUND", "ABS", "SIGN", "EXP", "LOG", "SQRT" };
 
-const OPERATOR_ENUM A[][2] = { { OPERATOR_ENUM::PLUS, OPERATOR_ENUM::MINUS },
-		{ }, { OPERATOR_ENUM::MULTIPLY, OPERATOR_ENUM::DIVIDE }, {
-				OPERATOR_ENUM::POW, OPERATOR_ENUM::POW } };
+const std::initializer_list<OPERATOR_ENUM> A[] = { { OPERATOR_ENUM::PLUS,
+		OPERATOR_ENUM::MINUS }, { }, { OPERATOR_ENUM::MULTIPLY,
+		OPERATOR_ENUM::DIVIDE }, { OPERATOR_ENUM::POW } };
 
 static std::regex bregex(std::string const &s) {
 	return std::regex("\\b" + s + "\\b");
