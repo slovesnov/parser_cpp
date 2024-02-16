@@ -35,6 +35,9 @@ static std::regex bregex(std::string const &s) {
 }
 
 static std::string prepareString(std::string const &s) {
+	if (std::regex_search(s,  std::regex("[+-]{2}"))) {
+		throw std::runtime_error("two operators in a row");
+	}
 	auto q = std::regex_replace(s, std::regex("\\s+"), "");
 	return std::regex_replace(q, std::regex("\\*{2}"), "^");
 }
@@ -160,6 +163,8 @@ void ExpressionEstimator::compile(const char *expression) {
 	const char *lorig = _strdup(setlocale(LC_ALL, NULL));
 	setlocale(LC_NUMERIC, "C");
 
+
+
 	getToken();
 	if (m_operator == OPERATOR_ENUM::END) {
 		throw std::runtime_error("unexpected end of expression");
@@ -195,10 +200,6 @@ Node* ExpressionEstimator::parse(int n) {
 			!= std::end(A[n])) {
 		node = new Node(this, m_operator, node);
 		getToken();
-		if (std::find(std::begin(A[0]), std::end(A[0]), m_operator)
-				!= std::end(A[0])) { //here A[0]
-			throw std::runtime_error("two operators in a row");
-		}
 		node->m_right = parse(n + 1);
 	}
 	return node;
