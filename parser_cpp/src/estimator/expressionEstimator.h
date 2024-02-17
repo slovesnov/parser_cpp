@@ -22,7 +22,7 @@ class ExpressionEstimator {
 	OPERATOR_ENUM m_operator;
 	unsigned m_position;
 	const double *m_argument;
-	int m_argumentSize;
+	unsigned m_argumentSize;
 	unsigned m_arguments;
 	Node *m_root;
 	std::vector<Node*> m_vnode;
@@ -189,7 +189,7 @@ public:
 	}
 
 	double calculate(std::vector<double> const &v) {
-		return calculate((const double*) v.data(), int(v.size()));
+		return calculate((const double*) v.data(), v.size());
 	}
 
 	double calculate(std::initializer_list<double> const &v) {

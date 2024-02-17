@@ -77,7 +77,11 @@ void ExpressionEstimator::getToken() {
 		std::string token = m_expression.substr(i, m_position - i);
 
 		if (token[0] == 'X' && token.length() > 1 && isdigit(token[1])) {
-			j = atoi(token.c_str() + 1);
+			j = strtoul(token.c_str() + 1, &pEnd, 10);
+			if (pEnd != token.c_str() + token.length()) {
+				throw std::runtime_error(
+						std::string("unknown variable ") + token);
+			}
 			if (m_arguments < j + 1) {
 				m_arguments = j + 1;
 			}

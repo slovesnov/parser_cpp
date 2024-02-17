@@ -240,11 +240,11 @@ int main() {
 	ExpressionEstimator estimator;
 
 	try {
-		printf("%lf\n", ExpressionEstimator::calculate("abs(.5)"));
+//		printf("%lf\n", ExpressionEstimator::calculate("abs(.5)"));
 //		std::string s[] = { "a" };
 //		ExpressionEstimator estimator("a^a", s, std::size(s));
 
-		estimator.compile("x0^x0");
+		estimator.compile("x000*2");
 		double d[] = { 2 };
 		const int i=1;
 		int const& j=i;
