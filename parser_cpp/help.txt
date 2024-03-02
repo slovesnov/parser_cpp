@@ -1,5 +1,6 @@
 1.27
 fixed bug invalid variable name x0a cpp, js, php
+[c++] graph exclude f key from switch fullscreen because "floor()" function has f char
 
 1.26 13 2 2024
 [all] added sign function
