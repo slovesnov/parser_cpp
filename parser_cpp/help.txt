@@ -1,6 +1,7 @@
-1.27
+1.27 in progress
 fixed bug invalid variable name x0a cpp, js, php
-[c++] graph exclude f key from switch fullscreen because "floor()" function has f char
+[c++] graph exclude f key from switch fullscreen if focused in one of the entries because "floor()" function has f char
+[c++] graph add fullscreen button
 
 1.26 13 2 2024
 [all] added sign function
