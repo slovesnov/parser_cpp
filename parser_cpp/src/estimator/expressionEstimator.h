@@ -64,7 +64,7 @@ class ExpressionEstimator {
 
 public:
 	//version for calculator/graph
-	static constexpr double version = 1.26; //format("%.2lf",)
+	static constexpr double version = 1.27; //format("%.2lf",)
 
 #ifdef EXPRESSION_ESTIMATOR_COUNT_NODES
 	static int totalCreated;
