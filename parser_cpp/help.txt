@@ -3,6 +3,7 @@ fixed bug invalid variable name x0a cpp, js, php
 [c++] graph exclude f key from switch fullscreen if focused in one of the entries because "floor()" function has f char
 [c++] graph add fullscreen button
 [c++] graph fixed bug on loading if set points "1 .2 4 .5"
+[c++] graph added grid
 
 1.26 13 2 2024
 [all] added sign function
