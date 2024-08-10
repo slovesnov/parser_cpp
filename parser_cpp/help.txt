@@ -1,9 +1,19 @@
-1.27 in progress
-fixed bug invalid variable name x0a cpp, js, php
-[c++] graph exclude f key from switch fullscreen if focused in one of the entries because "floor()" function has f char
-[c++] graph add fullscreen button
-[c++] graph fixed bug on loading if set points "1 .2 4 .5"
-[c++] graph added grid
+1.28 in progress
+[all] fixed bug invalid variable name x0a cpp, js, php
+[c++, graph] exclude f key from switch fullscreen if focused in one of the entries because "floor()" function has f char
+[c++, graph] add fullscreen button
+[c++, graph] fixed bug on loading if set points "1 .2 4 .5"
+[c++, graph] added grid
+
+1.27 27 6 2024
+[c++, graph] added load/save option
+[c++, graph] added dots series as graph
+[c++, graph] added show/hide every/all graphs
+
+[ru]
+[c++, graph] добавлена возможность загрузки/сохранения
+[c++, graph] добавлена последовательность точек в виде графика
+[c++, graph] добавлена возможность показывать/скрывать графики
 
 1.26 13 2 2024
 [all] added sign function
