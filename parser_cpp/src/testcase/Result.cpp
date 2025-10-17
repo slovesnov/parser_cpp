@@ -26,8 +26,9 @@ void Result::set(std::string s, int line) {
 	auto f = map.find(s);
 	if (f == map.end()) {
 		errorCode = OK;
-		if(!parseString(s, value)){
-			printel("cann't parse testcase string",s,"at line",line);
+		if (!parseString(s, value)) {
+			printel("cann't parse testcase string",s,"at line",line)
+			;
 			exit(0);
 		}
 	} else {

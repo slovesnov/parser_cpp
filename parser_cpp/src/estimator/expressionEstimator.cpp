@@ -28,7 +28,7 @@ static std::regex bregex(std::string const &s) {
 }
 
 static std::string prepareString(std::string const &s) {
-	if (std::regex_search(s,  std::regex("[+-]{2}"))) {
+	if (std::regex_search(s, std::regex("[+-]{2}"))) {
 		throw std::runtime_error("two operators in a row");
 	}
 	auto q = std::regex_replace(s, std::regex("\\s+"), "");
@@ -159,8 +159,6 @@ void ExpressionEstimator::compile(const char *expression) {
 	//parse dot as decimal separator for strtod, so setup standard locale
 	const char *lorig = _strdup(setlocale(LC_ALL, NULL));
 	setlocale(LC_NUMERIC, "C");
-
-
 
 	getToken();
 	if (m_operator == OPERATOR_ENUM::END) {
