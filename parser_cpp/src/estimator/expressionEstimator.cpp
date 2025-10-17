@@ -1,10 +1,3 @@
-/******************************************************
- Copyright (c/c++) 2013-doomsday by Aleksey Slovesnov 
- homepage http://slovesnov.users.sourceforge.net/?parser
- email slovesnov@yandex.ru
- All rights reserved.
- ******************************************************/
-
 //need #define _USE_MATH_DEFINES before any include
 #define _USE_MATH_DEFINES
 #include <cmath>

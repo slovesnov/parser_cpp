@@ -1,10 +1,3 @@
-/******************************************************
- Copyright (c/c++) 2013-doomsday by Aleksey Slovesnov
- homepage http://slovesnov.users.sourceforge.net/?parser
- email slovesnov@yandex.ru
- All rights reserved.
- ******************************************************/
-
 /*
  * TYPE 1 - sample1
  * TYPE 2 - sample2
