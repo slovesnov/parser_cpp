@@ -136,13 +136,15 @@ void ExpressionEstimator::getToken() {
 			}
 		} else {
 			m_tokenValue = strtod(p, &pEnd); //also parse hex, 0x.34 also parsed here
+			if (pEnd == p) {
+				throw std::runtime_error("invalid number");
+			}
 			m_position += pEnd - p;
 		}
 	} else {
 		throw std::runtime_error(
 				std::string("unknown symbol ") + m_expression[m_position]);
 	}
-
 }
 
 void ExpressionEstimator::compile(const char *expression) {
