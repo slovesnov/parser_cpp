@@ -1,7 +1,7 @@
 //need #define _USE_MATH_DEFINES before any include
 #define _USE_MATH_DEFINES
 #include <cmath>
-#include <cstring> //_strdup
+#include <cstring>
 #include <regex>
 #include <algorithm>
 
@@ -159,7 +159,7 @@ void ExpressionEstimator::compile(const char *expression) {
 	clear();
 
 	//parse dot as decimal separator for strtod, so setup standard locale
-	const char *lorig = _strdup(setlocale(LC_ALL, NULL));
+	std::string l = setlocale(LC_ALL, NULL);
 	setlocale(LC_NUMERIC, "C");
 
 	getToken();
@@ -172,8 +172,7 @@ void ExpressionEstimator::compile(const char *expression) {
 	}
 
 	//return original locale
-	setlocale(LC_ALL, lorig);
-	free((void*) lorig);
+	setlocale(LC_ALL, l.c_str());
 }
 
 Node* ExpressionEstimator::parse(int n) {
