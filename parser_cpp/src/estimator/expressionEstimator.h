@@ -57,7 +57,7 @@ class ExpressionEstimator {
 
 public:
 	//version for calculator/graph
-	static constexpr double version = 1.28; //format("%.2lf",)
+	static constexpr std::string version = "1.2.9";
 
 #ifdef EXPRESSION_ESTIMATOR_COUNT_NODES
 	static int totalCreated;

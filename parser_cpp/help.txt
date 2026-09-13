@@ -1,4 +1,13 @@
-1.28 in progress
+1.2.9
+[c++ graph] fixed bug with open/save file
+[c++ graph/calculator] reduced installer size; only necessary libraries are now used
+[all] the parser is split into separate projects to avoid code duplication.
+
+[c++ graph] истравлен баг с открытием/сохранением файлов
+[c++ graph/calculator] уменьшен размер установочного файла, теперь используются только нужные библиотеки
+[всё] парсер разбит на разные проекты, чтобы избежать повторов кода
+
+1.28
 [all] fixed bug invalid variable name x0a cpp, js, php
 [c++ graph] exclude f key from switch fullscreen if focused in one of the entries because "floor()" function has f char
 [c++ graph] add fullscreen button
